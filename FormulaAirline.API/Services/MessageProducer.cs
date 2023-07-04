@@ -20,7 +20,7 @@ namespace FormulaAirline.API.Services
             using var channel =connection.CreateModel();
 
             channel.QueueDeclare("bookings",durable:true,
-                exclusive:true);
+                exclusive:false);
 
             var jsonString =JsonSerializer.Serialize(message);
             var body =Encoding.UTF8.GetBytes(jsonString);
